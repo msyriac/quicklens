@@ -23,8 +23,8 @@ import os, copy, glob, hashlib
 import numpy as np
 import pylab as pl
 
-import util
-import maps
+from . import util
+from . import maps
 
 def bl(fwhm_arcmin, lmax):
     """ returns the map-level transfer function for a symmetric Gaussian beam.
@@ -508,8 +508,8 @@ class clmat_teb(object):
             assert( (lmax+1) >= len(other) )
 
             ret = self.clone()
-            for i in xrange(0,3):
-                for j in xrange(0,3):
+            for i in range(0,3):
+                for j in range(0,3):
                     ret.clmat[:,i,j] *= other[0:lmax+1]
 
             return ret
@@ -533,14 +533,14 @@ class clmat_teb(object):
     def inverse(self):
         """ return a new clmat_teb object, containing the 3x3 matrix pseudo-inverse of this one, multipole-by-multipole. """
         ret = copy.deepcopy(self)
-        for l in xrange(0, self.lmax+1):
+        for l in range(0, self.lmax+1):
             ret.clmat[l,:,:] = np.linalg.pinv( self.clmat[l] )
         return ret
 
     def cholesky(self):
         """ return a new clmat_teb object, containing the 3x3 cholesky decomposition (or matrix square root) of this one, multipole-by-multipole. """
         ret = copy.deepcopy(self)
-        for l in xrange(0, self.lmax+1):
+        for l in range(0, self.lmax+1):
             u, t, v = np.linalg.svd(self.clmat[l])
             ret.clmat[l,:,:] = np.dot(u, np.dot(np.diag(np.sqrt(t)), v))
         return ret

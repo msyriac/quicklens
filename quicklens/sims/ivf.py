@@ -18,7 +18,7 @@ import numpy  as np
 import pickle as pk
 
 import quicklens as ql
-import util
+from . import util
 
 class library(object):
     """ base class for inverse-variance filtered objects. """

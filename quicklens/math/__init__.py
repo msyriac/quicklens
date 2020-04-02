@@ -1,2 +1,2 @@
-from math import *
-import wignerd
+from .math import *
+from . import wignerd

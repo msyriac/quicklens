@@ -21,7 +21,7 @@ bl         = ql.spec.bl(fwhm_arcmin=1., lmax=lmax) # instrumental beam transfer 
 cl_len     = ql.spec.get_camb_lensedcl(lmax=lmax)  # cmb theory spectra.
 
 mask = np.zeros( (nx, nx) )                        # test mask.
-mask[ nx/4:3*nx/4, nx/4:3*nx/4 ] = 1.0             # (rectangular cutout)
+mask[ nx//4:3*nx//4, nx//4:3*nx//4 ] = 1.0             # (rectangular cutout)
 
 nltt       = (nlev_t*np.pi/180./60.)**2 / bl**2
 nlee       = (nlev_p*np.pi/180./60.)**2 / bl**2

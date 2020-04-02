@@ -57,9 +57,9 @@ def tebfft(pix, tcl):
     """
     nx, dx, ny, dy = pix.nx, pix.dx, pix.ny, pix.dy
         
-    tfft      = (np.random.standard_normal((ny,nx/2+1)) + 1.j * np.random.standard_normal((ny,nx/2+1))) / np.sqrt(2.)
-    efft      = (np.random.standard_normal((ny,nx/2+1)) + 1.j * np.random.standard_normal((ny,nx/2+1))) / np.sqrt(2.)
-    bfft      = (np.random.standard_normal((ny,nx/2+1)) + 1.j * np.random.standard_normal((ny,nx/2+1))) / np.sqrt(2.)
+    tfft      = (np.random.standard_normal((ny,nx//2+1)) + 1.j * np.random.standard_normal((ny,nx//2+1))) / np.sqrt(2.)
+    efft      = (np.random.standard_normal((ny,nx//2+1)) + 1.j * np.random.standard_normal((ny,nx//2+1))) / np.sqrt(2.)
+    bfft      = (np.random.standard_normal((ny,nx//2+1)) + 1.j * np.random.standard_normal((ny,nx//2+1))) / np.sqrt(2.)
 
     tfft[0,0] = np.sqrt(2.) * np.real(tfft[0,0])
     efft[0,0] = np.sqrt(2.) * np.real(efft[0,0])

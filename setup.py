@@ -12,12 +12,12 @@ def configuration(parent_package='',top_path=None):
 
     config.add_extension('math.cwignerd', ['quicklens/math/wignerd.pyf', 'quicklens/math/wignerd.c'])
     if distutils.version.StrictVersion(np.version.version) > distutils.version.StrictVersion('1.6.1'):
-        config.add_extension('shts.fsht', ['quicklens/shts/shts.f95'],
+        config.add_extension('shts.fsht', ['quicklens/shts/shts.f90'],
                              libraries=['gomp'], f2py_options=[],
                              extra_f90_compile_args=['-ffixed-line-length-1000', '-fopenmp'],
                              extra_compile_args=['-fopenmp'], extra_link_args=[],)
     else:
-        config.add_extension('shts.fsht', ['quicklens/shts/shts.f95'],
+        config.add_extension('shts.fsht', ['quicklens/shts/shts.f90'],
                              libraries=['gomp'], f2py_options=[],
                              extra_compile_args=['-fopenmp'], extra_link_args=[],)
 
