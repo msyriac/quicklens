@@ -980,6 +980,12 @@ class cfft(pix):
     def __rmul__(self, other):
         return self.__mul__(other)
 
+    def __truediv__(self, other):
+        return self.__div__(other)
+
+    def __rtruediv__(self, other):
+        return self.__rdiv__(other)
+
     def __div__(self, other):
         if False:
             pass
